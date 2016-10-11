@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Chat";
+}
+
+
+<div id="content-link">
+
+</div>
+
+<div id="loading" style="display: none">
+    Идет загрузка...
+</div>
+
+
+
+
+<div class="fullChat">
+    <div class="chat vertical">
+        <ul id="active_users" class="active_users"></ul>
+
+        <div id="messages" class="message_container">
+        </div>
+
+        <div class="input_container">
+            <textarea name="message" id="input_field" class="hidden_input"></textarea>
+            <input type="hidden" id="user_id" class="hidden_input">
+            <input type="button" value="Отправить" id="send_button" />
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+
+    @Scripts.Render("~/bundles/chat")
+    @Scripts.Render("~/bundles/battle")
+
+    <script>
+        function showContent(link, onDone) {
+            var cont = document.getElementById('content-link');
+            var loading = document.getElementById('loading');
+            cont.innerHTML = loading.innerHTML;
+            var http = createRequestObject();
+            if (http) {
+                http.open('get', link);
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4) {
+                        cont.innerHTML = http.responseText;
+                        if (typeof onDone === "function") {
+                            onDone();
+                        }
+                    }
+                }
+                http.send(null);
+            }
+            else { document.location = link; }
+        }
+        // ajax объект
+        function createRequestObject() {
+            try { return new XMLHttpRequest() }
+            catch (e) {
+                try { return new ActiveXObject('Msxml2.XMLHTTP') }
+                catch (e) {
+                    try { return new ActiveXObject('Microsoft.XMLHTTP') }
+                    catch (e) { return null; }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        showContent('@Url.Action("Inventory", "Home")', window.DrawHpAndManaBar)
+    </script>
+}
+

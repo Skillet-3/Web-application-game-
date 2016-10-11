@@ -1,0 +1,58 @@
+﻿@model ChatSignalR.Models.InventoryViewModel
+
+@{
+    Layout = "";
+}
+
+ <div class="second_page_name_h2"><h4><b>ИНВЕНТАРЬ</b></h4></div>
+<div class="inv_name_img">
+    <img src="http://i.oldbk.com/i/lock.gif"><b> @Model.Name </b> [@Model.Level] <a href=""><img src="http://i.oldbk.com/i/inf.gif" id="img_inf"></a><br>
+
+    <div class="wrapper_hp" id="hp" data-lvl-hp-full="@Model.Health_Full" data-lvl-hp="@Model.Health">
+        <div class="progress_hp" style="width: 0%"></div>
+    </div>
+    <div class="text_hp"></div>
+
+    <div class="wrapper_mp" id="mp" data-lvl-mp-full="@Model.Mana_Full" data-lvl-mp="@Model.Mana">
+        <div class="progress_mp" style="width: 0%"></div>
+    </div>
+    <div class="text_mp"></div>
+
+    <img src="~/Content/img/exampl.jpg" class="inv_img_user" width="250px">
+
+</div>
+<div class="skills">
+    <div>
+        Сила: <b>@Model.Power</b><br>
+        Ловкость: <b>@Model.Agility</b><br>
+        Интуиция: <b>@Model.Intuition</b><br>
+        Выносливость: <b>@Model.Stamina</b><br>
+        Интеллект: <b>@Model.Intelligence</b>
+    </div>
+    <hr align="left" class="hr_skil" width="150px" color="#000">
+    <div>
+        Уровень: <b>@Model.Level</b><br>
+        Опыт: <b>@Model.Experience</b><br>
+        Побед: <b>@Model.Wins</b><br>
+        Поражений: <b>@Model.Losses</b><br>
+        Ничьих: <b>@Model.Standoff</b><br>
+        Клан: <b>@Model.Clan</b><br>
+        Деньги: <b>@Model.Money кр</b>
+    </div>
+    <hr align="left" class="hr_skil" width="150px" color="#000">
+    <div>
+        Здоровье: <b>@Model.Health / @Model.Health_Full</b><br>
+        Мана: <b>@Model.Mana / @Model.Mana_Full</b><br>
+        Урон: <b>@Model.Damage_min - @Model.Damage_max</b><br>
+
+        Крит: <b>@Model.Crit</b><br>
+        Антикрит: <b>@Model.Anti_crit</b><br>
+        Уворот: <b>@Model.Dodge</b><br>
+        Антиуворот: <b>@Model.Anti_dodge</b><br>
+
+        Броня головы: <b>@Model.Armor_head</b><br>
+        Броня корпуса: <b>@Model.Armor_body</b><br>
+        Броня пояса: <b>@Model.Armor_belt</b><br>
+        Броня ног: <b>@Model.Armor_feet</b><br>
+    </div>
+</div>

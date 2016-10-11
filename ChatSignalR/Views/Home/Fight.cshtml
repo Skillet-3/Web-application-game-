@@ -1,0 +1,85 @@
+﻿@model ChatSignalR.Models.FightViewModel
+@{
+    ViewBag.Title = "Battles"; 
+    Layout = "";
+    
+}
+
+
+<div id="battle_widget">
+    <div class="second_page_name_h2"><h4><b>БОЙ</b></h4></div>
+
+    <div class="inv_name_img" id="@Model.Person.Name">
+        <img src="http://i.oldbk.com/i/lock.gif"><b> @Model.Person.Name </b> [@Model.Person.Level] <a href=""><img src="http://i.oldbk.com/i/inf.gif" id="img_inf"></a><br>
+
+        <div class="wrapper_hp" id="hp_@Model.Person.Name" data-lvl-hp-full="@Model.Person.Health_Full" data-lvl-hp="@Model.Person.Health">
+            <div class="progress_hp" style="width: 0%"></div>
+        </div>
+        <div class="text_hp"></div>
+
+        <div class="wrapper_mp" id="mp" data-lvl-mp-full="@Model.Person.Mana_Full" data-lvl-mp="@Model.Person.Mana">
+            <div class="progress_mp" style="width: 0%"></div>
+        </div>
+        <div class="text_mp"></div>
+
+        <img src="~/Content/img/exampl.jpg" class="inv_img_user" width="250px">
+
+        <div class="skills_fight">
+            Здоровье: <b>@Model.Person.Health / @Model.Person.Health_Full</b><br>
+            Мана: <b>@Model.Person.Mana / @Model.Person.Mana_Full</b><br><br>
+            Сила: <b>@Model.Person.Power</b><br>
+            Ловкость: <b>@Model.Person.Agility</b><br>
+            Интуиция: <b>@Model.Person.Intuition</b><br>
+            Выносливость: <b>@Model.Person.Stamina</b><br>
+            Интеллект: <b>@Model.Person.Intelligence</b>
+        </div>
+    </div>
+
+    <div class="inv_name_img inv_name_img_enemy" id="enemy">
+        <img src="http://i.oldbk.com/i/lock.gif"><b> @Model.PersonEnemy.Name </b> [@Model.PersonEnemy.Level] <a href=""><img src="http://i.oldbk.com/i/inf.gif" id="img_inf"></a><br>
+
+        <div class="wrapper_hp" id="hp_@Model.PersonEnemy.Name" data-lvl-hp-full="@Model.PersonEnemy.Health_Full" data-lvl-hp="@Model.PersonEnemy.Health">
+            <div class="progress_hp" style="width: 0%"></div>
+        </div>
+        <div class="text_hp"></div>
+
+        <div class="wrapper_mp" id="mp" data-lvl-mp-full="@Model.PersonEnemy.Mana_Full" data-lvl-mp="@Model.PersonEnemy.Mana">
+            <div class="progress_mp" style="width: 0%"></div>
+        </div>
+        <div class="text_mp"></div>
+
+        <img src="~/Content/img/exampl.jpg" class="inv_img_user" width="250px">
+
+        <div class="skills_fight">
+            Здоровье: <b>@Model.PersonEnemy.Health / @Model.PersonEnemy.Health_Full</b><br>
+            Мана: <b>@Model.PersonEnemy.Mana / @Model.PersonEnemy.Mana_Full</b><br><br>
+            Сила: <b>@Model.PersonEnemy.Power</b><br>
+            Ловкость: <b>@Model.PersonEnemy.Agility</b><br>
+            Интуиция: <b>@Model.PersonEnemy.Intuition</b><br>
+            Выносливость: <b>@Model.PersonEnemy.Stamina</b><br>
+            Интеллект: <b>@Model.PersonEnemy.Intelligence</b>
+        </div>
+    </div>
+
+    <div class="button-fight">
+        <div class="radio-button" id="atack_bar">
+            <p><b>АТАКА</b></p>
+            <input name="att" type="radio" data-type="1" checked>Голова<br>
+            <input name="att" type="radio" data-type="2">Грудь<br>
+            <input name="att" type="radio" data-type="3">Ноги<br>
+            <input name="att" type="radio" data-type="4">Пятки<br>
+        </div>
+        <div class="radio-button" id="defence_bar">
+            <p><b>ЗАЩИТА</b></p>
+            <input name="pr" type="radio" data-type="1" checked>Голова и грудь<br>
+            <input name="pr" type="radio" data-type="2">Грудь и пояс<br>
+            <input name="pr" type="radio" data-type="3">Ноги и пятки<br>
+            <input name="pr" type="radio" data-type="4">Пятки и голова<br>
+        </div>
+        <p><input type="submit" id="battle_send" value="Готово" class="button-com" /></p>
+
+        <div id="battle_log" class="log">
+
+        </div>
+    </div>
+</div>

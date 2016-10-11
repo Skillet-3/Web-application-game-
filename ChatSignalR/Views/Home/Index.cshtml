@@ -1,0 +1,40 @@
+﻿@model ChatSignalR.Models.LoginViewModel
+@{
+    ViewBag.Title = "Дварфы";
+    Layout = "~/Views/Shared/_MainPage.cshtml";
+        
+}
+  
+
+<div>
+    @using (Html.BeginForm("Chat", "Home", new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="panel-login">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" } )
+
+
+            <div class="input-fon">
+                 @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "input-text", placeholder="Логин" } })
+                 @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-fon">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input-text", placeholder = "Пароль" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+                <div>
+                    <input type="submit" value="" class="btn-login img-button " />
+                </div>
+
+                <div class="button-reg"><a href="@Url.Action("Register", "Account")"><img src="~/Content/img/reg.png" class="img-button" /></a></div>
+
+            </div>
+    }
+</div>
+
+
+<div>
+
+</div>

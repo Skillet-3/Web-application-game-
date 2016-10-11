@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Battles"; 
+    Layout = "";
+    
+}
+
+
+<div class="second_page_name_h2"><h4><b>ПОЕДИНКИ</b></h4></div>
+
+<input type="submit" value="Подать заявку на бой" class="button-com" onclick="showContent('@Url.Action("FightV2", "Home")', userBattleInit)"/>
+<input type="submit" value="Принять" class="button-com" onclick="showContent('@Url.Action("Fight", "Home")', battleInit)" /> 
+<input type="submit" value="Бой с ботом клоном" class="button-com" onclick="showContent('@Url.Action("Fight", "Home")', battleInit)" /> 
+ 

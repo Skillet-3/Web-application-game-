@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[SKILLS]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
